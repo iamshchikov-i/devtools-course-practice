@@ -2,6 +2,9 @@
 
 #include <gtest/gtest.h>
 
+#include <string>
+#include <vector>
+
 #include "include/regexpr_application.h"
 
 using ::testing::internal::RE;
@@ -10,7 +13,6 @@ using std::string;
 
 class RegExprApplicationTest : public ::testing::Test {
  protected:
-
     void Act(vector<string> args_) {
         vector<const char*> options;
 

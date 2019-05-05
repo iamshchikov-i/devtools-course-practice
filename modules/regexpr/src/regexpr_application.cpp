@@ -10,7 +10,7 @@
 RegExprApplication::RegExprApplication() : message_() { }
 
 void RegExprApplication::Help(const char* appname, const char* message) {
-    message_ = 
+    message_ =
         std::string(message) +
         "This is a regular expression application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
@@ -37,7 +37,7 @@ bool RegExprApplication::ValidateNumberOfArguments(int argc,
 std::string RegExprApplication::operator()(int argc, const char **argv) {
     Arguments args;
 
-    if(!ValidateNumberOfArguments(argc, argv)) {
+    if (!ValidateNumberOfArguments(argc, argv)) {
         return message_;
     }
 
@@ -46,12 +46,11 @@ std::string RegExprApplication::operator()(int argc, const char **argv) {
 
     RegExpr re(args.seq);
 
-    auto res = std::make_pair(0, 0);
     std::ostringstream stream;
 
-    res = re.Match(args.str);
+    auto res = re.Match(args.str);
 
-    if(res.first == -1 && res.second == -1)
+    if (res.first == -1 && res.second == -1)
         stream << "Search string doesn't contain a line according to pattern: "
                << args.seq;
     else
